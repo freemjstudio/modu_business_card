@@ -8,6 +8,6 @@
 import Foundation
 import UIKit
 
-struct AudioData {
+struct AudioData: Codable {
     
 }
