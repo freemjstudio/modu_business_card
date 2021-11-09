@@ -3,27 +3,45 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		24BD865F273943490044DD71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD865E273943490044DD71 /* AppDelegate.swift */; };
 		24BD8661273943490044DD71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD8660273943490044DD71 /* SceneDelegate.swift */; };
-		24BD8663273943490044DD71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD8662273943490044DD71 /* ViewController.swift */; };
 		24BD8666273943490044DD71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24BD8664273943490044DD71 /* Main.storyboard */; };
 		24BD86682739434A0044DD71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24BD86672739434A0044DD71 /* Assets.xcassets */; };
 		24BD866B2739434A0044DD71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24BD86692739434A0044DD71 /* LaunchScreen.storyboard */; };
+		24BD86732739FA220044DD71 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD86722739FA220044DD71 /* SelectViewController.swift */; };
+		24CED13A2739FCC80012AD7D /* SendCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED1392739FCC80012AD7D /* SendCardViewController.swift */; };
+		24CED13F273A0AC40012AD7D /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED13E273A0AC40012AD7D /* SocketIOManager.swift */; };
+		24CED141273A20040012AD7D /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED140273A20040012AD7D /* CardListViewController.swift */; };
+		24CED143273A20460012AD7D /* CardListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED142273A20460012AD7D /* CardListCell.swift */; };
+		24CED147273A209C0012AD7D /* MyCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED146273A209C0012AD7D /* MyCardViewController.swift */; };
+		24CED14A273A229B0012AD7D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED149273A229B0012AD7D /* Person.swift */; };
+		24CED14C273A22FE0012AD7D /* AudioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED14B273A22FE0012AD7D /* AudioData.swift */; };
+		541D3A4EFF518CE1E7D610A4 /* Pods_Modu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF562A5ADD7DA3BF5F2446F /* Pods_Modu.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		24BD865B273943490044DD71 /* Modu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24BD865E273943490044DD71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24BD8660273943490044DD71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		24BD8662273943490044DD71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		24BD8665273943490044DD71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24BD86672739434A0044DD71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24BD866A2739434A0044DD71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24BD866C2739434A0044DD71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24BD86722739FA220044DD71 /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
+		24CED1392739FCC80012AD7D /* SendCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCardViewController.swift; sourceTree = "<group>"; };
+		24CED13E273A0AC40012AD7D /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SocketIOManager.swift; path = Modu/UI/SocketIOManager.swift; sourceTree = SOURCE_ROOT; };
+		24CED140273A20040012AD7D /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
+		24CED142273A20460012AD7D /* CardListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListCell.swift; sourceTree = "<group>"; };
+		24CED146273A209C0012AD7D /* MyCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardViewController.swift; sourceTree = "<group>"; };
+		24CED149273A229B0012AD7D /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		24CED14B273A22FE0012AD7D /* AudioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioData.swift; sourceTree = "<group>"; };
+		9AF562A5ADD7DA3BF5F2446F /* Pods_Modu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Modu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A080AE82196CB66A488A17EA /* Pods-Modu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Modu.release.xcconfig"; path = "Target Support Files/Pods-Modu/Pods-Modu.release.xcconfig"; sourceTree = "<group>"; };
+		D0C3F8A68A5C087D8AA9D3B0 /* Pods-Modu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Modu.debug.xcconfig"; path = "Target Support Files/Pods-Modu/Pods-Modu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				541D3A4EFF518CE1E7D610A4 /* Pods_Modu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +61,8 @@
 			children = (
 				24BD865D273943490044DD71 /* Modu */,
 				24BD865C273943490044DD71 /* Products */,
+				B2DA2ECDAE56B19E674FAE85 /* Pods */,
+				6CA8316C6B72D58A666F4143 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +77,87 @@
 		24BD865D273943490044DD71 /* Modu */ = {
 			isa = PBXGroup;
 			children = (
+				24CED13D273A07900012AD7D /* Socket */,
+				24CED13C273A05960012AD7D /* Model */,
+				24CED13B2739FCCE0012AD7D /* UI */,
 				24BD865E273943490044DD71 /* AppDelegate.swift */,
 				24BD8660273943490044DD71 /* SceneDelegate.swift */,
-				24BD8662273943490044DD71 /* ViewController.swift */,
 				24BD8664273943490044DD71 /* Main.storyboard */,
 				24BD86672739434A0044DD71 /* Assets.xcassets */,
 				24BD86692739434A0044DD71 /* LaunchScreen.storyboard */,
 				24BD866C2739434A0044DD71 /* Info.plist */,
 			);
 			path = Modu;
+			sourceTree = "<group>";
+		};
+		24CED13B2739FCCE0012AD7D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				24CED144273A20510012AD7D /* 01.Main */,
+				24CED145273A20690012AD7D /* 02.MyNameCard */,
+				24CED148273A20A40012AD7D /* 03.CardList */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		24CED13C273A05960012AD7D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24CED149273A229B0012AD7D /* Person.swift */,
+				24CED14B273A22FE0012AD7D /* AudioData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		24CED13D273A07900012AD7D /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				24CED13E273A0AC40012AD7D /* SocketIOManager.swift */,
+			);
+			path = Socket;
+			sourceTree = "<group>";
+		};
+		24CED144273A20510012AD7D /* 01.Main */ = {
+			isa = PBXGroup;
+			children = (
+				24CED1392739FCC80012AD7D /* SendCardViewController.swift */,
+				24BD86722739FA220044DD71 /* SelectViewController.swift */,
+			);
+			path = 01.Main;
+			sourceTree = "<group>";
+		};
+		24CED145273A20690012AD7D /* 02.MyNameCard */ = {
+			isa = PBXGroup;
+			children = (
+				24CED146273A209C0012AD7D /* MyCardViewController.swift */,
+			);
+			path = 02.MyNameCard;
+			sourceTree = "<group>";
+		};
+		24CED148273A20A40012AD7D /* 03.CardList */ = {
+			isa = PBXGroup;
+			children = (
+				24CED140273A20040012AD7D /* CardListViewController.swift */,
+				24CED142273A20460012AD7D /* CardListCell.swift */,
+			);
+			path = 03.CardList;
+			sourceTree = "<group>";
+		};
+		6CA8316C6B72D58A666F4143 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9AF562A5ADD7DA3BF5F2446F /* Pods_Modu.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B2DA2ECDAE56B19E674FAE85 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0C3F8A68A5C087D8AA9D3B0 /* Pods-Modu.debug.xcconfig */,
+				A080AE82196CB66A488A17EA /* Pods-Modu.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +167,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24BD866F2739434A0044DD71 /* Build configuration list for PBXNativeTarget "Modu" */;
 			buildPhases = (
+				FBBEF860923D6C9741278082 /* [CP] Check Pods Manifest.lock */,
 				24BD8657273943490044DD71 /* Sources */,
 				24BD8658273943490044DD71 /* Frameworks */,
 				24BD8659273943490044DD71 /* Resources */,
+				7EF9F1CE6D91C1C7C3A7567D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,13 +227,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7EF9F1CE6D91C1C7C3A7567D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Modu/Pods-Modu-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Modu/Pods-Modu-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Modu/Pods-Modu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBBEF860923D6C9741278082 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Modu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		24BD8657273943490044DD71 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24BD8663273943490044DD71 /* ViewController.swift in Sources */,
+				24CED141273A20040012AD7D /* CardListViewController.swift in Sources */,
 				24BD865F273943490044DD71 /* AppDelegate.swift in Sources */,
+				24CED13F273A0AC40012AD7D /* SocketIOManager.swift in Sources */,
+				24BD86732739FA220044DD71 /* SelectViewController.swift in Sources */,
+				24CED14C273A22FE0012AD7D /* AudioData.swift in Sources */,
+				24CED147273A209C0012AD7D /* MyCardViewController.swift in Sources */,
+				24CED13A2739FCC80012AD7D /* SendCardViewController.swift in Sources */,
+				24CED14A273A229B0012AD7D /* Person.swift in Sources */,
+				24CED143273A20460012AD7D /* CardListCell.swift in Sources */,
 				24BD8661273943490044DD71 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +427,7 @@
 		};
 		24BD86702739434A0044DD71 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0C3F8A68A5C087D8AA9D3B0 /* Pods-Modu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +447,7 @@
 		};
 		24BD86712739434A0044DD71 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A080AE82196CB66A488A17EA /* Pods-Modu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
