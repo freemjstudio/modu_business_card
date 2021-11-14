@@ -13,11 +13,16 @@ import UIKit
 class SendCardViewController: UIViewController, AVAudioRecorderDelegate {
     var recorder: AVAudioRecorder!
     var levelTimer = Timer()
+    var socket: SocketIOClient!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
         record()
+        SocketIOManager.shared.establishConnection()
+        
+        // 뷰가 로드 되면 소켓 통신 시작 !
     }
     
     func initRecord() {
@@ -77,6 +82,8 @@ class SendCardViewController: UIViewController, AVAudioRecorderDelegate {
         
         // 타이머는 main thread에서 실행 됨
         levelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
+        
+        SocketIOManager.shared.sendMessage(message: "test1", nickname: "test2")
     }
 
     @objc func levelTimerCallback() {

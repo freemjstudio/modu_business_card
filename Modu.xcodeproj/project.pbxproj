@@ -18,10 +18,11 @@
 		24CED141273A20040012AD7D /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED140273A20040012AD7D /* CardListViewController.swift */; };
 		24CED143273A20460012AD7D /* CardListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED142273A20460012AD7D /* CardListCell.swift */; };
 		24CED147273A209C0012AD7D /* MyCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED146273A209C0012AD7D /* MyCardViewController.swift */; };
-		24CED14A273A229B0012AD7D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED149273A229B0012AD7D /* Person.swift */; };
 		24CED14C273A22FE0012AD7D /* AudioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED14B273A22FE0012AD7D /* AudioData.swift */; };
 		24CED14E273A34A90012AD7D /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED14D273A34A90012AD7D /* SocketParser.swift */; };
 		24CED150273A55A60012AD7D /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED14F273A55A60012AD7D /* ReceiveViewController.swift */; };
+		24F7195E2740FE350096971B /* DetailInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7195D2740FE350096971B /* DetailInfoVC.swift */; };
+		24F7196227410A560096971B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7196127410A560096971B /* Card.swift */; };
 		541D3A4EFF518CE1E7D610A4 /* Pods_Modu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF562A5ADD7DA3BF5F2446F /* Pods_Modu.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,10 +40,11 @@
 		24CED140273A20040012AD7D /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
 		24CED142273A20460012AD7D /* CardListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListCell.swift; sourceTree = "<group>"; };
 		24CED146273A209C0012AD7D /* MyCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardViewController.swift; sourceTree = "<group>"; };
-		24CED149273A229B0012AD7D /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		24CED14B273A22FE0012AD7D /* AudioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioData.swift; sourceTree = "<group>"; };
 		24CED14D273A34A90012AD7D /* SocketParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketParser.swift; sourceTree = "<group>"; };
 		24CED14F273A55A60012AD7D /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
+		24F7195D2740FE350096971B /* DetailInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoVC.swift; sourceTree = "<group>"; };
+		24F7196127410A560096971B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		9AF562A5ADD7DA3BF5F2446F /* Pods_Modu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Modu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A080AE82196CB66A488A17EA /* Pods-Modu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Modu.release.xcconfig"; path = "Target Support Files/Pods-Modu/Pods-Modu.release.xcconfig"; sourceTree = "<group>"; };
 		D0C3F8A68A5C087D8AA9D3B0 /* Pods-Modu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Modu.debug.xcconfig"; path = "Target Support Files/Pods-Modu/Pods-Modu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,7 +109,7 @@
 		24CED13C273A05960012AD7D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				24CED149273A229B0012AD7D /* Person.swift */,
+				24F7196127410A560096971B /* Card.swift */,
 				24CED14B273A22FE0012AD7D /* AudioData.swift */,
 			);
 			path = Model;
@@ -145,6 +147,7 @@
 			children = (
 				24CED140273A20040012AD7D /* CardListViewController.swift */,
 				24CED142273A20460012AD7D /* CardListCell.swift */,
+				24F7195D2740FE350096971B /* DetailInfoVC.swift */,
 			);
 			path = 03.CardList;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				TargetAttributes = {
 					24BD865A273943490044DD71 = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -282,14 +286,15 @@
 			files = (
 				24CED14E273A34A90012AD7D /* SocketParser.swift in Sources */,
 				24CED141273A20040012AD7D /* CardListViewController.swift in Sources */,
+				24F7195E2740FE350096971B /* DetailInfoVC.swift in Sources */,
 				24BD865F273943490044DD71 /* AppDelegate.swift in Sources */,
 				24CED13F273A0AC40012AD7D /* SocketIOManager.swift in Sources */,
 				24CED150273A55A60012AD7D /* ReceiveViewController.swift in Sources */,
 				24BD86732739FA220044DD71 /* SelectViewController.swift in Sources */,
 				24CED14C273A22FE0012AD7D /* AudioData.swift in Sources */,
 				24CED147273A209C0012AD7D /* MyCardViewController.swift in Sources */,
+				24F7196227410A560096971B /* Card.swift in Sources */,
 				24CED13A2739FCC80012AD7D /* SendCardViewController.swift in Sources */,
-				24CED14A273A229B0012AD7D /* Person.swift in Sources */,
 				24CED143273A20460012AD7D /* CardListCell.swift in Sources */,
 				24BD8661273943490044DD71 /* SceneDelegate.swift in Sources */,
 			);
@@ -439,6 +444,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L88FL78593;
 				INFOPLIST_FILE = Modu/Info.plist;
@@ -448,6 +454,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = freemjstudio.Modu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -459,6 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L88FL78593;
 				INFOPLIST_FILE = Modu/Info.plist;

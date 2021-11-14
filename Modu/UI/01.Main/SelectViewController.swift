@@ -18,10 +18,14 @@ class SelectViewController: UIViewController {
     // 명함 전송하기
     @IBAction func SendBtn(_ sender: Any) {
         SocketIOManager.shared.establishConnection()
+        record()
     }
 
     // 명함 받기
-    @IBAction func RecvBtn(_ sender: Any) {}
+    @IBAction func RecvBtn(_ sender: Any) {
+        SocketIOManager.shared.establishConnection()
+        record()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +36,6 @@ class SelectViewController: UIViewController {
         switch AVAudioSession.sharedInstance().recordPermission {
         case .granted:
             print("mic 권한 허용\n")
-            record()
         case .denied:
             recordNotAllowed()
         case .undetermined:
@@ -41,7 +44,7 @@ class SelectViewController: UIViewController {
 
                 if granted {
                     DispatchQueue.main.sync {
-                        self.record()
+                      print("mic 권한 허용됨 !! \n")
                     }
                 } else {
                     self.recordNotAllowed()
@@ -58,7 +61,7 @@ class SelectViewController: UIViewController {
         // userDomainMask 에 녹음 파일 생성
         let documents = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0])
         let url = documents.appendingPathComponent("record.caf")
-        print("url복사한뒤 finder 이동 메뉴 폴더로 가기. ", documents.absoluteString.replacingOccurrences(of: "file://", with: ""))
+        print("녹음된 파일은 여기 저장됨:", documents.absoluteString.replacingOccurrences(of: "file://", with: ""))
 
         // 녹음 세팅
         let recordSettings: [String: Any] = [

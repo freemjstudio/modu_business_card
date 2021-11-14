@@ -11,14 +11,14 @@ import SocketIO
 
 class SocketIOManager: NSObject {
     static let shared = SocketIOManager()
-    var manager = SocketManager(socketURL: URL(string: "http://localhost:12000")!, config: [.log(true), .compress])
+    var manager = SocketManager(socketURL: URL(string: "192.168.45.113:12000")!, config: [.log(true), .compress])
     var socket: SocketIOClient!
     
     override init() {
         super.init()
-        socket = self.manager.socket(forNamespace: "/test") // 룸 /test
+        socket = self.manager.socket(forNamespace: "") // 룸 /test
         
-        socket.on("test") { dataArray, ack in
+        socket.on("") { dataArray, ack in
             print(dataArray)
         }
     }
@@ -35,6 +35,11 @@ class SocketIOManager: NSObject {
     
     func sendMessage(message: String, nickname: String) {
         socket.emit("event", ["message" : "This is a test message"]) // event 라는 이름으로 메세지 송신
+    }
+    
+    func sendAudioData() {
+        // 녹음된 데이타 전송
+      //  socket.emit("audio", <#T##items: SocketData...##SocketData#>)
     }
     
 }
