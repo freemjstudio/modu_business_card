@@ -6,20 +6,31 @@
 //
 
 import UIKit
+var cardList: [Card] = [Card(name: "Minji Woo", tel: "010-3125-1610", company: "Google Korea", image: UIImage(named: "minji"), email: "mjwoo001@gmail.com"),
+                        Card(name: "Leonard", tel: "010-1234-5678", company: "Munster company", image: UIImage(named: "leo"), email: "leonard@gmail.com")]
 
 class CardListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // add new contract
-    @IBAction func addBtn(_ sender: Any) {}
+    @IBAction func addBtn(_ sender: Any) {
+        
+    }
 
     @IBOutlet var cardListTableView: UITableView!
-
-    var cardList: [Card] = [Card(name: "Minji Woo", tel: "010-3125-1610", company: "Google Korea", image: UIImage(named: "minji"), email: "mjwoo001@gmail.com"),
-                            Card(name: "Leonard", tel: "010-1234-5678", company: "Munster company", image: UIImage(named: "leo"),email: "leonard@gmail.com")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         cardListTableView.delegate = self
         cardListTableView.dataSource = self
+    }
+
+    // 뷰가 노출될 때마다 리스트의 데이터를 다시 불러옴
+    override func viewWillAppear(_ animated: Bool) {
+        cardListTableView.reloadData()
+    }
+
+    // tableview 섹션은 하나로 정함 !
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,13 +53,33 @@ class CardListViewController: UIViewController, UITableViewDelegate, UITableView
         let height: CGFloat = 180
         return height
     }
-    /*
-     // MARK: - Navigation
 
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
+    // 목록 삭제 함수
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // delete the row from the data source
+            cardList.remove(at: (indexPath as NSIndexPath).row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+
+        } else if editingStyle == .insert {
+            // create a new instance to add a new row in tableview
+        }
+    }
+
+    // 삭제 할 때 delete 대신 한글로 삭제라고 표시한다.
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "삭제"
+    }
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "cardDetail" {
+            let cell = sender as! UITableViewCell
+            let indexPath = cardListTableView.indexPath(for: cell)
+            let detailView = segue.destination as! DetailInfoVC
+            detailView.receiveData(cardList[((indexPath as NSIndexPath?)?.row)!])
+        }
+    }
 }

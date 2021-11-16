@@ -29,7 +29,7 @@ class SelectViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initRecord()
+      //  initRecord()
     }
 
     func initRecord() {

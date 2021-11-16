@@ -12,15 +12,17 @@ import UIKit
 
 class SendCardViewController: UIViewController, AVAudioRecorderDelegate {
     var recorder: AVAudioRecorder!
+    var player: AVAudioPlayer?
+    
     var levelTimer = Timer()
     var socket: SocketIOClient!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        record()
+       // record()
         SocketIOManager.shared.establishConnection()
+        SocketIOManager.shared.sendMessage(message: "test1", nickname: "test2")
         
         // 뷰가 로드 되면 소켓 통신 시작 !
     }
@@ -46,6 +48,18 @@ class SendCardViewController: UIViewController, AVAudioRecorderDelegate {
             }
         default:
             break
+        }
+    }
+    
+    func playChirpSound() {
+        let path = Bundle.main.path(forResource: "chirp", ofType: nil)!
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+        } catch {
+            print("can't load chirp sound file!! \n")
         }
     }
     
@@ -79,11 +93,12 @@ class SendCardViewController: UIViewController, AVAudioRecorderDelegate {
         recorder.prepareToRecord()
         recorder.isMeteringEnabled = true
         recorder.record()
+        playChirpSound()
         
         // 타이머는 main thread에서 실행 됨
-        levelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
+       // levelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
         
-        SocketIOManager.shared.sendMessage(message: "test1", nickname: "test2")
+        
     }
 
     @objc func levelTimerCallback() {
