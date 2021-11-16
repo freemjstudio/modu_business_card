@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddNewCardVC: UIViewController {
+class AddNewCardVC: UIViewController, UITextFieldDelegate {
     @IBOutlet var profileImageView: UIImageView!
 
     @IBOutlet var nameTextField: UITextField!
@@ -49,22 +49,32 @@ class AddNewCardVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
 
-        // Do any additional setup after loading the view.
+        nameTextField.delegate = self
+        telTextField.delegate = self
+        companyTextField.delegate = self
+        emailTextField.delegate = self
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
-    /*
-     // MARK: - Navigation
+    @objc
+    func keyboardWillShow(_ sender: NotificationCenter) {
+        view.frame.origin.y = -150
+    }
 
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
+    @objc
+    func keyboardWillHide(_ sender: NotificationCenter) {
+        view.frame.origin.y = 0 // Move view to original position
+    }
 }
 
 extension AddNewCardVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -73,7 +83,7 @@ extension AddNewCardVC: UIImagePickerControllerDelegate, UINavigationControllerD
             profileImageView.image = image
             print(info)
         }
-        
+
         dismiss(animated: true, completion: nil)
     }
 }
