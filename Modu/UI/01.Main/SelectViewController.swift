@@ -10,26 +10,44 @@ import Foundation
 import SocketIO
 import UIKit
 
-class SelectViewController: UIViewController {
+class SelectViewController: UIViewController, StreamDelegate {
+    // socket 통신
+    var host_address = "3.35.25.230"
+    let host_port = 12000
+    var input: InputStream?
+    var output: OutputStream?
+
     var recorder: AVAudioRecorder!
     var levelTimer = Timer()
 
     var socket: SocketIOClient!
     // 명함 전송하기
     @IBAction func SendBtn(_ sender: Any) {
-        SocketIOManager.shared.establishConnection()
+        Stream.getStreamsToHost(withName: host_address, port: host_port, inputStream: &input, outputStream: &output)
+        output!.open()
+        input?.delegate = self
+        let myRunLoop = RunLoop.current
+        input?.schedule(in: myRunLoop, forMode: .default)
+        input!.open()
+        print("current ip: ", host_address)
         record()
     }
 
     // 명함 받기
     @IBAction func RecvBtn(_ sender: Any) {
-        SocketIOManager.shared.establishConnection()
+        Stream.getStreamsToHost(withName: host_address, port: host_port, inputStream: &input, outputStream: &output)
+        output!.open()
+        input?.delegate = self
+        let myRunLoop = RunLoop.current
+        input?.schedule(in: myRunLoop, forMode: .default)
+        input!.open()
+        print("current ip: ", host_address)
         record()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  initRecord()
+        //  initRecord()
     }
 
     func initRecord() {
@@ -44,7 +62,7 @@ class SelectViewController: UIViewController {
 
                 if granted {
                     DispatchQueue.main.sync {
-                      print("mic 권한 허용됨 !! \n")
+                        print("mic 권한 허용됨 !! \n")
                     }
                 } else {
                     self.recordNotAllowed()
@@ -85,24 +103,6 @@ class SelectViewController: UIViewController {
         recorder.prepareToRecord()
         recorder.isMeteringEnabled = true
         recorder.record()
-
-        // 타이머는 main thread에서 실행 됨
-        levelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
-    }
-
-    @objc func levelTimerCallback() {
-        recorder.updateMeters()
-        let level = recorder.averagePower(forChannel: 0)
-
-        if level < -48 {
-            print("조용함")
-        } else if level < -30 {
-            print("약간의 소음 있음")
-        } else if level < -10 {
-            print("조금 시끄러움")
-        } else {
-            print("시끄러움")
-        }
     }
 
     func stopRecord() {

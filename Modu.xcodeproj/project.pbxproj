@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		248CA095274388CD00CD7F8A /* AddNewCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248CA094274388CD00CD7F8A /* AddNewCardVC.swift */; };
+		24B683F92743FC0000E97CB7 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B683F82743FC0000E97CB7 /* Socket.swift */; };
 		24BD865F273943490044DD71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD865E273943490044DD71 /* AppDelegate.swift */; };
 		24BD8661273943490044DD71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD8660273943490044DD71 /* SceneDelegate.swift */; };
 		24BD8666273943490044DD71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24BD8664273943490044DD71 /* Main.storyboard */; };
@@ -14,19 +16,20 @@
 		24BD866B2739434A0044DD71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24BD86692739434A0044DD71 /* LaunchScreen.storyboard */; };
 		24BD86732739FA220044DD71 /* SelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD86722739FA220044DD71 /* SelectViewController.swift */; };
 		24CED13A2739FCC80012AD7D /* SendCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED1392739FCC80012AD7D /* SendCardViewController.swift */; };
-		24CED13F273A0AC40012AD7D /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED13E273A0AC40012AD7D /* SocketIOManager.swift */; };
 		24CED141273A20040012AD7D /* CardListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED140273A20040012AD7D /* CardListViewController.swift */; };
 		24CED143273A20460012AD7D /* CardListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED142273A20460012AD7D /* CardListCell.swift */; };
 		24CED147273A209C0012AD7D /* MyCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED146273A209C0012AD7D /* MyCardViewController.swift */; };
 		24CED14C273A22FE0012AD7D /* AudioData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED14B273A22FE0012AD7D /* AudioData.swift */; };
-		24CED14E273A34A90012AD7D /* SocketParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED14D273A34A90012AD7D /* SocketParser.swift */; };
 		24CED150273A55A60012AD7D /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED14F273A55A60012AD7D /* ReceiveViewController.swift */; };
 		24F7195E2740FE350096971B /* DetailInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7195D2740FE350096971B /* DetailInfoVC.swift */; };
 		24F7196227410A560096971B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7196127410A560096971B /* Card.swift */; };
+		24F7198D274131780096971B /* chirp.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 24F7198C274131780096971B /* chirp.m4a */; };
 		541D3A4EFF518CE1E7D610A4 /* Pods_Modu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF562A5ADD7DA3BF5F2446F /* Pods_Modu.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		248CA094274388CD00CD7F8A /* AddNewCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardVC.swift; sourceTree = "<group>"; };
+		24B683F82743FC0000E97CB7 /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		24BD865B273943490044DD71 /* Modu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24BD865E273943490044DD71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24BD8660273943490044DD71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,15 +39,14 @@
 		24BD866C2739434A0044DD71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24BD86722739FA220044DD71 /* SelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectViewController.swift; sourceTree = "<group>"; };
 		24CED1392739FCC80012AD7D /* SendCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCardViewController.swift; sourceTree = "<group>"; };
-		24CED13E273A0AC40012AD7D /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SocketIOManager.swift; path = Modu/UI/SocketIOManager.swift; sourceTree = SOURCE_ROOT; };
 		24CED140273A20040012AD7D /* CardListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewController.swift; sourceTree = "<group>"; };
 		24CED142273A20460012AD7D /* CardListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListCell.swift; sourceTree = "<group>"; };
 		24CED146273A209C0012AD7D /* MyCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardViewController.swift; sourceTree = "<group>"; };
 		24CED14B273A22FE0012AD7D /* AudioData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioData.swift; sourceTree = "<group>"; };
-		24CED14D273A34A90012AD7D /* SocketParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketParser.swift; sourceTree = "<group>"; };
 		24CED14F273A55A60012AD7D /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
 		24F7195D2740FE350096971B /* DetailInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoVC.swift; sourceTree = "<group>"; };
 		24F7196127410A560096971B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		24F7198C274131780096971B /* chirp.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = chirp.m4a; path = "../../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/chirp.m4a"; sourceTree = "<group>"; };
 		9AF562A5ADD7DA3BF5F2446F /* Pods_Modu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Modu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A080AE82196CB66A488A17EA /* Pods-Modu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Modu.release.xcconfig"; path = "Target Support Files/Pods-Modu/Pods-Modu.release.xcconfig"; sourceTree = "<group>"; };
 		D0C3F8A68A5C087D8AA9D3B0 /* Pods-Modu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Modu.debug.xcconfig"; path = "Target Support Files/Pods-Modu/Pods-Modu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 		24BD865D273943490044DD71 /* Modu */ = {
 			isa = PBXGroup;
 			children = (
+				24F7196327412DE70096971B /* sound */,
 				24CED13D273A07900012AD7D /* Socket */,
 				24CED13C273A05960012AD7D /* Model */,
 				24CED13B2739FCCE0012AD7D /* UI */,
@@ -118,8 +121,7 @@
 		24CED13D273A07900012AD7D /* Socket */ = {
 			isa = PBXGroup;
 			children = (
-				24CED13E273A0AC40012AD7D /* SocketIOManager.swift */,
-				24CED14D273A34A90012AD7D /* SocketParser.swift */,
+				24B683F82743FC0000E97CB7 /* Socket.swift */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -146,10 +148,19 @@
 			isa = PBXGroup;
 			children = (
 				24CED140273A20040012AD7D /* CardListViewController.swift */,
+				248CA094274388CD00CD7F8A /* AddNewCardVC.swift */,
 				24CED142273A20460012AD7D /* CardListCell.swift */,
 				24F7195D2740FE350096971B /* DetailInfoVC.swift */,
 			);
 			path = 03.CardList;
+			sourceTree = "<group>";
+		};
+		24F7196327412DE70096971B /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				24F7198C274131780096971B /* chirp.m4a */,
+			);
+			path = sound;
 			sourceTree = "<group>";
 		};
 		6CA8316C6B72D58A666F4143 /* Frameworks */ = {
@@ -232,6 +243,7 @@
 				24BD866B2739434A0044DD71 /* LaunchScreen.storyboard in Resources */,
 				24BD86682739434A0044DD71 /* Assets.xcassets in Resources */,
 				24BD8666273943490044DD71 /* Main.storyboard in Resources */,
+				24F7198D274131780096971B /* chirp.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,19 +296,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24CED14E273A34A90012AD7D /* SocketParser.swift in Sources */,
 				24CED141273A20040012AD7D /* CardListViewController.swift in Sources */,
 				24F7195E2740FE350096971B /* DetailInfoVC.swift in Sources */,
 				24BD865F273943490044DD71 /* AppDelegate.swift in Sources */,
-				24CED13F273A0AC40012AD7D /* SocketIOManager.swift in Sources */,
 				24CED150273A55A60012AD7D /* ReceiveViewController.swift in Sources */,
 				24BD86732739FA220044DD71 /* SelectViewController.swift in Sources */,
 				24CED14C273A22FE0012AD7D /* AudioData.swift in Sources */,
 				24CED147273A209C0012AD7D /* MyCardViewController.swift in Sources */,
+				24B683F92743FC0000E97CB7 /* Socket.swift in Sources */,
 				24F7196227410A560096971B /* Card.swift in Sources */,
 				24CED13A2739FCC80012AD7D /* SendCardViewController.swift in Sources */,
 				24CED143273A20460012AD7D /* CardListCell.swift in Sources */,
 				24BD8661273943490044DD71 /* SceneDelegate.swift in Sources */,
+				248CA095274388CD00CD7F8A /* AddNewCardVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

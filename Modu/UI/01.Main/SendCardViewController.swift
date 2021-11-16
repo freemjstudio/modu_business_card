@@ -7,24 +7,21 @@
 import AVFoundation
 import CoreAudio
 import Foundation
-import SocketIO
 import UIKit
 
-class SendCardViewController: UIViewController, AVAudioRecorderDelegate {
+class SendCardViewController: UIViewController, AVAudioRecorderDelegate, StreamDelegate {
+    
+    
+    // record & play chrip signal
     var recorder: AVAudioRecorder!
     var player: AVAudioPlayer?
     
     var levelTimer = Timer()
-    var socket: SocketIOClient!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
        
-       // record()
-        SocketIOManager.shared.establishConnection()
-        SocketIOManager.shared.sendMessage(message: "test1", nickname: "test2")
-        
-        // 뷰가 로드 되면 소켓 통신 시작 !
+       
     }
     
     func initRecord() {
@@ -96,9 +93,7 @@ class SendCardViewController: UIViewController, AVAudioRecorderDelegate {
         playChirpSound()
         
         // 타이머는 main thread에서 실행 됨
-       // levelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
-        
-        
+        // levelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
     }
 
     @objc func levelTimerCallback() {
@@ -146,3 +141,4 @@ class SendCardViewController: UIViewController, AVAudioRecorderDelegate {
      }
      */
 }
+

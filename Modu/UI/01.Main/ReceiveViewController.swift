@@ -7,11 +7,10 @@
 import AVFoundation
 import CoreAudio
 import Foundation
-import SocketIO
+
 import UIKit
 
 class ReceiveViewController: UIViewController {
-    //var player: AVAudioPlayer?
     var player = AVQueuePlayer()
 
     @IBAction func btn(_ sender: UIButton) {
@@ -21,13 +20,10 @@ class ReceiveViewController: UIViewController {
             player.play()
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-       
     }
-
-
 
     /*
      // MARK: - Navigation
