@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		248CA095274388CD00CD7F8A /* AddNewCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248CA094274388CD00CD7F8A /* AddNewCardVC.swift */; };
-		24B683F92743FC0000E97CB7 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B683F82743FC0000E97CB7 /* Socket.swift */; };
+		24B683FD2744111D00E97CB7 /* MyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B683FC2744111D00E97CB7 /* MyCard.swift */; };
+		24B683FF274413D700E97CB7 /* DefaultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B683FE274413D700E97CB7 /* DefaultVC.swift */; };
+		24B68401274413FA00E97CB7 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B68400274413FA00E97CB7 /* EditProfileVC.swift */; };
 		24BD865F273943490044DD71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD865E273943490044DD71 /* AppDelegate.swift */; };
 		24BD8661273943490044DD71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BD8660273943490044DD71 /* SceneDelegate.swift */; };
 		24BD8666273943490044DD71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24BD8664273943490044DD71 /* Main.storyboard */; };
@@ -29,7 +31,9 @@
 
 /* Begin PBXFileReference section */
 		248CA094274388CD00CD7F8A /* AddNewCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardVC.swift; sourceTree = "<group>"; };
-		24B683F82743FC0000E97CB7 /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
+		24B683FC2744111D00E97CB7 /* MyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCard.swift; sourceTree = "<group>"; };
+		24B683FE274413D700E97CB7 /* DefaultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVC.swift; sourceTree = "<group>"; };
+		24B68400274413FA00E97CB7 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		24BD865B273943490044DD71 /* Modu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24BD865E273943490044DD71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24BD8660273943490044DD71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				24F7196127410A560096971B /* Card.swift */,
+				24B683FC2744111D00E97CB7 /* MyCard.swift */,
 				24CED14B273A22FE0012AD7D /* AudioData.swift */,
 			);
 			path = Model;
@@ -121,7 +126,6 @@
 		24CED13D273A07900012AD7D /* Socket */ = {
 			isa = PBXGroup;
 			children = (
-				24B683F82743FC0000E97CB7 /* Socket.swift */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -140,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				24CED146273A209C0012AD7D /* MyCardViewController.swift */,
+				24B68400274413FA00E97CB7 /* EditProfileVC.swift */,
+				24B683FE274413D700E97CB7 /* DefaultVC.swift */,
 			);
 			path = 02.MyNameCard;
 			sourceTree = "<group>";
@@ -303,11 +309,13 @@
 				24BD86732739FA220044DD71 /* SelectViewController.swift in Sources */,
 				24CED14C273A22FE0012AD7D /* AudioData.swift in Sources */,
 				24CED147273A209C0012AD7D /* MyCardViewController.swift in Sources */,
-				24B683F92743FC0000E97CB7 /* Socket.swift in Sources */,
 				24F7196227410A560096971B /* Card.swift in Sources */,
+				24B683FD2744111D00E97CB7 /* MyCard.swift in Sources */,
 				24CED13A2739FCC80012AD7D /* SendCardViewController.swift in Sources */,
 				24CED143273A20460012AD7D /* CardListCell.swift in Sources */,
+				24B683FF274413D700E97CB7 /* DefaultVC.swift in Sources */,
 				24BD8661273943490044DD71 /* SceneDelegate.swift in Sources */,
+				24B68401274413FA00E97CB7 /* EditProfileVC.swift in Sources */,
 				248CA095274388CD00CD7F8A /* AddNewCardVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

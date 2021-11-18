@@ -13,14 +13,6 @@ import UIKit
 class ReceiveViewController: UIViewController {
     var player = AVQueuePlayer()
 
-    @IBAction func btn(_ sender: UIButton) {
-        if let url = Bundle.main.url(forResource: "chirp", withExtension: "m4a") {
-            player.removeAllItems()
-            player.insert(AVPlayerItem(url: url), after: nil)
-            player.play()
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }

@@ -10,25 +10,23 @@ import Foundation
 import UIKit
 
 class SendCardViewController: UIViewController, AVAudioRecorderDelegate, StreamDelegate {
-    
-    
+    var player = AVQueuePlayer()
     // record & play chrip signal
     var recorder: AVAudioRecorder!
-    var player: AVAudioPlayer?
-    
+   
     var levelTimer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
        
-       
+        playChirpSound()
     }
     
     func initRecord() {
         switch AVAudioSession.sharedInstance().recordPermission {
         case .granted:
             print("mic 권한 허용\n")
-            record()
+        // record()
         case .denied:
             recordNotAllowed()
         case .undetermined:
@@ -37,7 +35,7 @@ class SendCardViewController: UIViewController, AVAudioRecorderDelegate, StreamD
 
                 if granted {
                     DispatchQueue.main.sync {
-                        self.record()
+                        //   self.record()
                     }
                 } else {
                     self.recordNotAllowed()
@@ -49,14 +47,10 @@ class SendCardViewController: UIViewController, AVAudioRecorderDelegate, StreamD
     }
     
     func playChirpSound() {
-        let path = Bundle.main.path(forResource: "chirp", ofType: nil)!
-        let url = URL(fileURLWithPath: path)
-        
-        do {
-            player = try AVAudioPlayer(contentsOf: url)
-            player?.play()
-        } catch {
-            print("can't load chirp sound file!! \n")
+        if let url = Bundle.main.url(forResource: "chirp", withExtension: "m4a") {
+            player.removeAllItems()
+            player.insert(AVPlayerItem(url: url), after: nil)
+            player.play()
         }
     }
     
@@ -141,4 +135,3 @@ class SendCardViewController: UIViewController, AVAudioRecorderDelegate, StreamD
      }
      */
 }
-

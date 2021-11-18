@@ -18,6 +18,7 @@ class SelectViewController: UIViewController, StreamDelegate {
     var output: OutputStream?
 
     var recorder: AVAudioRecorder!
+    var player = AVQueuePlayer()
     var levelTimer = Timer()
 
     var socket: SocketIOClient!
@@ -31,6 +32,16 @@ class SelectViewController: UIViewController, StreamDelegate {
         input!.open()
         print("current ip: ", host_address)
         record()
+        // 여기에 소켓 보내야댐
+        playChirpSound()
+    }
+
+    func playChirpSound() {
+        if let url = Bundle.main.url(forResource: "chirp", withExtension: "m4a") {
+            player.removeAllItems()
+            player.insert(AVPlayerItem(url: url), after: nil)
+            player.play()
+        }
     }
 
     // 명함 받기
@@ -43,6 +54,7 @@ class SelectViewController: UIViewController, StreamDelegate {
         input!.open()
         print("current ip: ", host_address)
         record()
+        playChirpSound()
     }
 
     override func viewDidLoad() {

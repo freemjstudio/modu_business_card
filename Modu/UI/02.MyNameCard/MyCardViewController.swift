@@ -12,6 +12,10 @@ class MyCardViewController: UIViewController {
    
     var myCard: Card?
     
+    @IBAction func editBtn(_ sender: Any) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
