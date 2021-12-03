@@ -10,121 +10,58 @@ import Foundation
 import UIKit
 
 class SendCardViewController: UIViewController, AVAudioRecorderDelegate, StreamDelegate {
-    var player = AVQueuePlayer()
-    // record & play chrip signal
     var recorder: AVAudioRecorder!
-   
-    var levelTimer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        playChirpSound()
-    }
-    
-    func initRecord() {
-        switch AVAudioSession.sharedInstance().recordPermission {
-        case .granted:
-            print("mic 권한 허용\n")
-        // record()
-        case .denied:
-            recordNotAllowed()
-        case .undetermined:
-            AVAudioSession.sharedInstance().requestRecordPermission { granted in
-                print(granted)
-
-                if granted {
-                    DispatchQueue.main.sync {
-                        //   self.record()
-                    }
-                } else {
-                    self.recordNotAllowed()
-                }
-            }
-        default:
-            break
-        }
-    }
-    
-    func playChirpSound() {
-        if let url = Bundle.main.url(forResource: "chirp", withExtension: "m4a") {
-            player.removeAllItems()
-            player.insert(AVPlayerItem(url: url), after: nil)
-            player.play()
-        }
-    }
-    
-    func record() {
-        let audioSession = AVAudioSession.sharedInstance()
-
-        // userDomainMask 에 녹음 파일 생성
-        let documents = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0])
-        let url = documents.appendingPathComponent("record.caf")
-        print("url복사한뒤 finder 이동 메뉴 폴더로 가기. ", documents.absoluteString.replacingOccurrences(of: "file://", with: ""))
-
-        // 녹음 세팅
-        let recordSettings: [String: Any] = [
-            AVFormatIDKey: kAudioFormatAppleIMA4,
-            AVSampleRateKey: 16000,
-            AVNumberOfChannelsKey: 1,
-            AVEncoderBitRateKey: 9600,
-            AVLinearPCMBitDepthKey: 8,
-            AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue
-        ]
-
-        do {
-            try audioSession.setCategory(AVAudioSession.Category.playAndRecord)
-            try audioSession.setActive(true)
-            try recorder = AVAudioRecorder(url: url, settings: recordSettings)
-        } catch {
-            print(error)
-            return
-        }
-
-        recorder.prepareToRecord()
-        recorder.isMeteringEnabled = true
-        recorder.record()
-        playChirpSound()
-        
-        // 타이머는 main thread에서 실행 됨
-        // levelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
     }
 
-    @objc func levelTimerCallback() {
-        recorder.updateMeters()
-        let level = recorder.averagePower(forChannel: 0)
-        
-        if level < -48 {
-            print("조용함")
-        } else if level < -30 {
-            print("약간의 소음 있음")
-        } else if level < -10 {
-            print("조금 시끄러움")
-        } else {
-            print("시끄러움")
-        }
-    }
-
-    func recordNotAllowed() {
-        print("permission denined!")
-    }
-    
     func stopRecord() {
         recorder.stop()
+        export(fileType: .m4a, completion: { })
         try? AVAudioSession.sharedInstance().setActive(false)
         searchRecord()
     }
-    
+
+    public func getDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+
     func searchRecord() {
         let urlString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        
+
         if let urls = try? FileManager.default.subpathsOfDirectory(atPath: urlString) {
             for path in urls {
                 print("\(urlString)/\(path)")
             }
         }
     }
-    
+
+    func export(fileType: AVFileType = .m4a, completion: @escaping (() -> Void)) {
+        var exportOutputURL: URL? {
+            let pathURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            return pathURL?.appendingPathComponent("audio.m4a")
+        }
+        let recordingFileURL = getDirectory()
+        let asset = AVAsset(url: recordingFileURL)
+        guard let exportSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) else { return }
+        exportSession.outputFileType = fileType
+        exportSession.metadata = asset.metadata
+        exportSession.shouldOptimizeForNetworkUse = true
+        exportSession.outputURL = exportOutputURL
+        exportSession.exportAsynchronously {
+            print("export m4a file finished. \n")
+            completion()
+        }
+    }
+
+    // back btn 누르면 녹음 stop 됨 !
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopRecord()
+    }
     /*
      // MARK: - Navigation
 

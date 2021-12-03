@@ -7,34 +7,20 @@
 import AVFoundation
 import CoreAudio
 import Foundation
-import SocketIO
 import UIKit
 
 class SelectViewController: UIViewController, StreamDelegate {
     // socket 통신
     var host_address = "3.35.25.230"
     let host_port = 12000
-    var input: InputStream?
-    var output: OutputStream?
+    var inputStream: InputStream?
+    var outputStream: OutputStream?
 
     var recorder: AVAudioRecorder!
     var player = AVQueuePlayer()
     var levelTimer = Timer()
-
-    var socket: SocketIOClient!
-    // 명함 전송하기
-    @IBAction func SendBtn(_ sender: Any) {
-        Stream.getStreamsToHost(withName: host_address, port: host_port, inputStream: &input, outputStream: &output)
-        output!.open()
-        input?.delegate = self
-        let myRunLoop = RunLoop.current
-        input?.schedule(in: myRunLoop, forMode: .default)
-        input!.open()
-        print("current ip: ", host_address)
-        record()
-        // 여기에 소켓 보내야댐
-        playChirpSound()
-    }
+    
+    var audioData = NSData() // audio Data
 
     func playChirpSound() {
         if let url = Bundle.main.url(forResource: "chirp", withExtension: "m4a") {
@@ -44,14 +30,30 @@ class SelectViewController: UIViewController, StreamDelegate {
         }
     }
 
+    // 명함 전송하기
+    @IBAction func SendBtn(_ sender: Any) {
+        Stream.getStreamsToHost(withName: host_address, port: host_port, inputStream: &inputStream, outputStream: &outputStream)
+        outputStream!.open()
+        inputStream?.delegate = self
+        let myRunLoop = RunLoop.current
+        inputStream?.schedule(in: myRunLoop, forMode: .default)
+        inputStream!.open()
+        print("current ip: ", host_address)
+
+        record()
+        // 여기에 소켓 보내야댐
+    //    sendAudioData()
+        playChirpSound()
+    }
+
     // 명함 받기
     @IBAction func RecvBtn(_ sender: Any) {
-        Stream.getStreamsToHost(withName: host_address, port: host_port, inputStream: &input, outputStream: &output)
-        output!.open()
-        input?.delegate = self
+        Stream.getStreamsToHost(withName: host_address, port: host_port, inputStream: &inputStream, outputStream: &outputStream)
+        outputStream!.open()
+        inputStream?.delegate = self
         let myRunLoop = RunLoop.current
-        input?.schedule(in: myRunLoop, forMode: .default)
-        input!.open()
+        inputStream?.schedule(in: myRunLoop, forMode: .default)
+        inputStream!.open()
         print("current ip: ", host_address)
         record()
         playChirpSound()
@@ -85,36 +87,45 @@ class SelectViewController: UIViewController, StreamDelegate {
         }
     }
 
+    func getDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+
     func record() {
         let audioSession = AVAudioSession.sharedInstance()
-
-        // userDomainMask 에 녹음 파일 생성
-        let documents = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0])
-        let url = documents.appendingPathComponent("record.caf")
-        print("녹음된 파일은 여기 저장됨:", documents.absoluteString.replacingOccurrences(of: "file://", with: ""))
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let url = documentsURL.appendingPathComponent("audio.m4a") // caf
+        print("녹음된 파일은 여기 저장됨:", documentsURL.absoluteString.replacingOccurrences(of: "file://", with: ""))
 
         // 녹음 세팅
         let recordSettings: [String: Any] = [
-            AVFormatIDKey: kAudioFormatAppleIMA4,
-            AVSampleRateKey: 16000,
+            AVFormatIDKey: NSNumber(value: kAudioFormatAppleLossless),
+            AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue,
+            AVEncoderBitRateKey: 12000.0,
             AVNumberOfChannelsKey: 1,
-            AVEncoderBitRateKey: 9600,
-            AVLinearPCMBitDepthKey: 8,
-            AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue
+            AVSampleRateKey: 44100.0
         ]
 
         do {
             try audioSession.setCategory(AVAudioSession.Category.playAndRecord)
             try audioSession.setActive(true)
+
             try recorder = AVAudioRecorder(url: url, settings: recordSettings)
+    
         } catch {
             print(error)
             return
         }
-
+        
         recorder.prepareToRecord()
         recorder.isMeteringEnabled = true
-        recorder.record()
+        recorder.record(forDuration: 5.0) // 5초동안 녹음하기
+        audioData = try! Data(contentsOf: url) as NSData // 여기에 바로...? 담아주기 ?
+        
+        guard (audioData != nil) else {return}
+        
     }
 
     func stopRecord() {
@@ -135,6 +146,44 @@ class SelectViewController: UIViewController, StreamDelegate {
 
     func recordNotAllowed() {
         print("permission denined!")
+    }
+
+    func sendAudioData() {
+        
+
+        
+    }
+
+    // text 보내는 방법
+    
+    func sendCardData() {
+        let message = "hello \n"
+        guard outputStream != nil else { return }
+        let outData = message.data(using: .utf8)
+        outData?.withUnsafeBytes { (p: UnsafePointer<UInt8>) -> Void in
+            outputStream!.write(p, maxLength: (outData?.count)!)
+        }
+    }
+
+    // data 받는 부분 명함 데이타 받기 !!
+    func stream(_ aStream: Stream, handle eventCode: Stream.Event) {
+        switch eventCode {
+        case Stream.Event.hasBytesAvailable:
+            let iStream = aStream as! InputStream
+            let buffersize = 1024
+            var buffer = [UInt8](repeating: 0, count: buffersize)
+            iStream.read(&buffer, maxLength: buffersize)
+            let msg = String(bytes: buffer, encoding: String.Encoding.utf8)
+            print(msg)
+        case .endEncountered:
+            print("새 명함 received \n")
+        case .errorOccurred:
+            print("error occured \n")
+        case .hasSpaceAvailable:
+            print("has space available \n")
+        default:
+            return
+        }
     }
 
     /*
