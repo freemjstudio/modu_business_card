@@ -5,13 +5,18 @@
 //  Created by 우민지 on 2021/11/09.
 //
 import AVFoundation
+import CocoaAsyncSocket
 import CoreAudio
 import Foundation
 import UIKit
 
+var audioData = NSData() // audio Data
+var chirpData = NSData()
+var myProfile = cardList[0].image?.pngData() // UIImage
+
 class SelectViewController: UIViewController, StreamDelegate {
     // socket 통신
-    var host_address = "3.35.25.230"
+    var host_address = "13.209.9.126"
     let host_port = 12000
     var inputStream: InputStream?
     var outputStream: OutputStream?
@@ -19,14 +24,20 @@ class SelectViewController: UIViewController, StreamDelegate {
     var recorder: AVAudioRecorder!
     var player = AVQueuePlayer()
     var levelTimer = Timer()
-    
-    var audioData = NSData() // audio Data
+
+    let sender = 1 // 명함 전송
+    let receiver = 2 // 명함 받기
+
+    var audioURL: URL?
 
     func playChirpSound() {
         if let url = Bundle.main.url(forResource: "chirp", withExtension: "m4a") {
             player.removeAllItems()
             player.insert(AVPlayerItem(url: url), after: nil)
             player.play()
+            chirpData = try! Data(contentsOf: url) as NSData
+
+            print(chirpData.count) // number of elements in collections
         }
     }
 
@@ -40,10 +51,52 @@ class SelectViewController: UIViewController, StreamDelegate {
         inputStream!.open()
         print("current ip: ", host_address)
 
-        record()
-        // 여기에 소켓 보내야댐
-    //    sendAudioData()
+        //  record()
         playChirpSound()
+
+        //  audioData = try! Data(contentsOf: audioURL!) as NSData // 여기에 file을 담아준다.
+
+//        let outputData = Data(referencing: chirpData).withUnsafeBytes { unsafeBytes in
+//            let audioDataBytes = unsafeBytes.bindMemory(to: UInt8.self).baseAddress!
+//
+//            //      let dataSize = withUnsafeBytes(of: audioData.count.bigEndian, Array.init)
+//            //    let byteData = withUnsafeBytes(of: audioData, Array.init)
+//
+//            //  outputStream?.write(chirpData, maxLength: chirpData.count) // audio data 를 Byte로 바꾼것의 길이..
+//            outputStream?.write(audioDataBytes, maxLength: chirpData.count)
+//        }
+
+//
+
+        // -1 header size 보내기
+//
+//        let outputCardData = Data(referencing: myProfile as! NSData).withUnsafeBytes { unsafeBytes in
+//            
+//            let dataByte = unsafeBytes.bindMemory(to: UInt8.self).baseAddress!
+//            let dataSize = withUnsafeBytes(of: myProfile?.count.bigEndian, Array.init)
+//
+//            let first = withUnsafeBytes(of: 1, Array.init)
+//            let second = withUnsafeBytes(of: 2, Array.init)
+//            // 사이즈 앞에 1
+//            outputStream?.write(first, maxLength: myProfile!.count)
+//            outputStream?.write(dataSize, maxLength: myProfile!.count)
+//
+//            // 이미지 앞에 2
+//            outputStream?.write(second, maxLength: myProfile!.count)
+//            outputStream?.write(dataByte, maxLength: myProfile!.count) // png 파일 전송
+//            print(myProfile?.count)
+//
+//            print("이거", dataSize)
+//        }
+
+
+        let msg = "a"
+        let outData = msg.data(using: .utf8)
+        outData?.withUnsafeBytes {
+            _ in
+            outputStream!.write(msg, maxLength: outData!.count)
+            print(msg.count)
+        }
     }
 
     // 명함 받기
@@ -61,7 +114,12 @@ class SelectViewController: UIViewController, StreamDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //  initRecord()
+
+        if let url2 = Bundle.main.url(forResource: "audio", withExtension: "m4a") {
+            print(url2)
+            let tempData = try! Data(contentsOf: url2) as NSData
+            print("=============tempData: ", tempData)
+        }
     }
 
     func initRecord() {
@@ -98,6 +156,7 @@ class SelectViewController: UIViewController, StreamDelegate {
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let url = documentsURL.appendingPathComponent("audio.m4a") // caf
         print("녹음된 파일은 여기 저장됨:", documentsURL.absoluteString.replacingOccurrences(of: "file://", with: ""))
+        print("+++++++++ url : ", url)
 
         // 녹음 세팅
         let recordSettings: [String: Any] = [
@@ -113,19 +172,28 @@ class SelectViewController: UIViewController, StreamDelegate {
             try audioSession.setActive(true)
 
             try recorder = AVAudioRecorder(url: url, settings: recordSettings)
-    
+
         } catch {
             print(error)
             return
         }
-        
+
         recorder.prepareToRecord()
         recorder.isMeteringEnabled = true
         recorder.record(forDuration: 5.0) // 5초동안 녹음하기
-        audioData = try! Data(contentsOf: url) as NSData // 여기에 바로...? 담아주기 ?
-        
-        guard (audioData != nil) else {return}
-        
+
+        audioURL = url
+        // print("audio Data -----", audioData.count)
+    }
+
+    func searchRecord() {
+        let urlString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        if let urls = try? FileManager.default.subpathsOfDirectory(atPath: urlString) {
+            for path in urls {
+                print("\(urlString)/\(path)")
+                //     addAudio(URL(string: "file://\(urlString)/\(path)")!)
+            }
+        }
     }
 
     func stopRecord() {
@@ -134,7 +202,7 @@ class SelectViewController: UIViewController, StreamDelegate {
         searchRecord()
     }
 
-    func searchRecord() {
+    func findRecord() {
         let urlString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
 
         if let urls = try? FileManager.default.subpathsOfDirectory(atPath: urlString) {
@@ -148,16 +216,13 @@ class SelectViewController: UIViewController, StreamDelegate {
         print("permission denined!")
     }
 
-    func sendAudioData() {
-        
+    func sendAudioData() {}
 
-        
-    }
+    // my card 내용 전송하기
 
-    // text 보내는 방법
-    
     func sendCardData() {
         let message = "hello \n"
+
         guard outputStream != nil else { return }
         let outData = message.data(using: .utf8)
         outData?.withUnsafeBytes { (p: UnsafePointer<UInt8>) -> Void in
@@ -185,14 +250,4 @@ class SelectViewController: UIViewController, StreamDelegate {
             return
         }
     }
-
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-     }
-     */
 }

@@ -11,50 +11,30 @@ import UIKit
 
 class SendCardViewController: UIViewController, AVAudioRecorderDelegate, StreamDelegate {
     var recorder: AVAudioRecorder!
-
+    var outputStream: OutputStream?
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard outputStream != nil else { return }
+
+//        let outputData = Data(referencing: audioData).withUnsafeBytes { unsafeBytes in
+//            let bytes = unsafeBytes.bindMemory(to: UInt8.self).baseAddress!
+//            outputStream?.write(bytes, maxLength: audioData.count)
+//
+//            print("count :",audioData.count)
+//          //  print("length :", audioData.length)
+//        }
     }
 
     func stopRecord() {
         recorder.stop()
-        export(fileType: .m4a, completion: { })
+
         try? AVAudioSession.sharedInstance().setActive(false)
-        searchRecord()
     }
 
     public func getDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentsDirectory = paths[0]
         return documentsDirectory
-    }
-
-    func searchRecord() {
-        let urlString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-
-        if let urls = try? FileManager.default.subpathsOfDirectory(atPath: urlString) {
-            for path in urls {
-                print("\(urlString)/\(path)")
-            }
-        }
-    }
-
-    func export(fileType: AVFileType = .m4a, completion: @escaping (() -> Void)) {
-        var exportOutputURL: URL? {
-            let pathURL = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-            return pathURL?.appendingPathComponent("audio.m4a")
-        }
-        let recordingFileURL = getDirectory()
-        let asset = AVAsset(url: recordingFileURL)
-        guard let exportSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetAppleM4A) else { return }
-        exportSession.outputFileType = fileType
-        exportSession.metadata = asset.metadata
-        exportSession.shouldOptimizeForNetworkUse = true
-        exportSession.outputURL = exportOutputURL
-        exportSession.exportAsynchronously {
-            print("export m4a file finished. \n")
-            completion()
-        }
     }
 
     // back btn 누르면 녹음 stop 됨 !
