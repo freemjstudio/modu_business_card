@@ -3,4 +3,102 @@
    uuid = "F7A36E05-4FC7-4FC8-8421-398C16A73A54"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9D56A13A-8DBA-4EE9-B32D-248727F445F3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Modu/UI/01.Main/SelectViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "RecvBtn(_:)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "970CB856-6CEF-4BA3-A999-6CD1B3C34E53"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Modu/UI/01.Main/SelectViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  uuid = "970CB856-6CEF-4BA3-A999-6CD1B3C34E53 - 6154c7c2e909d3fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.UnsafePointer&lt;Swift.UInt8&gt;) -&gt; () in Modu.SelectViewController.SendBtn(Any) -&gt; ()"
+                  moduleName = "Modu"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/freemjlab/Desktop/Modu/Modu/UI/01.Main/SelectViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "824">
+               </Location>
+               <Location
+                  uuid = "970CB856-6CEF-4BA3-A999-6CD1B3C34E53 - a1e79c3545c4ece0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.UnsafePointer&lt;Swift.UInt8&gt;) -&gt; () in closure #1 (Swift.UnsafePointer&lt;Swift.UInt8&gt;) -&gt; () in Modu.SelectViewController.SendBtn(Any) -&gt; ()"
+                  moduleName = "Modu"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/freemjlab/Desktop/Modu/Modu/UI/01.Main/SelectViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E6E7F71-CCA2-4A89-B417-BBE5C151CF73"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Modu/UI/01.Main/SelectViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C3EC5A47-250E-461B-A81C-59230434FB29"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Modu/UI/01.Main/SelectViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

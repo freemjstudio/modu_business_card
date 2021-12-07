@@ -6,8 +6,7 @@
 //
 
 import UIKit
-var cardList: [Card] = [Card(name: "Minji Woo", tel: "010-3125-1610", company: "Google Korea", image: UIImage(named: "minji"), email: "mjwoo001@gmail.com"),
-                        Card(name: "Leonard", tel: "010-1234-5678", company: "Munster company", image: UIImage(named: "leo"), email: "leonard@gmail.com")]
+var cardList: [Card] = [Card(name: "Minji Woo", tel: "010-3125-1610", company: "중앙대학교", image: UIImage(named: "minji"), email: "mjwoo001@gmail.com")]
 
 class CardListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // add new contract

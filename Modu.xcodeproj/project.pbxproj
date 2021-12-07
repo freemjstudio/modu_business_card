@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		245EF42D275F45C00025D60F /* audio_test.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 245EF42C275F45C00025D60F /* audio_test.m4a */; };
+		2474A3D9275DB9AB004A1AC3 /* chirp.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2474A3D8275DB9AB004A1AC3 /* chirp.m4a */; };
+		2474A3DB275E14E5004A1AC3 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2474A3DA275E14E5004A1AC3 /* Data+.swift */; };
 		248CA095274388CD00CD7F8A /* AddNewCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248CA094274388CD00CD7F8A /* AddNewCardVC.swift */; };
 		24B683FD2744111D00E97CB7 /* MyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B683FC2744111D00E97CB7 /* MyCard.swift */; };
 		24B683FF274413D700E97CB7 /* DefaultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B683FE274413D700E97CB7 /* DefaultVC.swift */; };
@@ -25,12 +28,14 @@
 		24CED150273A55A60012AD7D /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CED14F273A55A60012AD7D /* ReceiveViewController.swift */; };
 		24F7195E2740FE350096971B /* DetailInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7195D2740FE350096971B /* DetailInfoVC.swift */; };
 		24F7196227410A560096971B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F7196127410A560096971B /* Card.swift */; };
-		24F7198D274131780096971B /* chirp.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 24F7198C274131780096971B /* chirp.m4a */; };
 		24FE5E27274632FF001DDCAC /* TCPSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FE5E26274632FF001DDCAC /* TCPSocket.swift */; };
 		541D3A4EFF518CE1E7D610A4 /* Pods_Modu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF562A5ADD7DA3BF5F2446F /* Pods_Modu.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		245EF42C275F45C00025D60F /* audio_test.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = audio_test.m4a; path = ../../../../Documents/audio_test.m4a; sourceTree = "<group>"; };
+		2474A3D8275DB9AB004A1AC3 /* chirp.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = chirp.m4a; path = ../../../../Downloads/chirp.m4a; sourceTree = "<group>"; };
+		2474A3DA275E14E5004A1AC3 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		248CA094274388CD00CD7F8A /* AddNewCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardVC.swift; sourceTree = "<group>"; };
 		24B683FC2744111D00E97CB7 /* MyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCard.swift; sourceTree = "<group>"; };
 		24B683FE274413D700E97CB7 /* DefaultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVC.swift; sourceTree = "<group>"; };
@@ -51,7 +56,6 @@
 		24CED14F273A55A60012AD7D /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
 		24F7195D2740FE350096971B /* DetailInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoVC.swift; sourceTree = "<group>"; };
 		24F7196127410A560096971B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		24F7198C274131780096971B /* chirp.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = chirp.m4a; path = "../../../../Music/iTunes/iTunes Media/Music/Unknown Artist/Unknown Album/chirp.m4a"; sourceTree = "<group>"; };
 		24FE5E26274632FF001DDCAC /* TCPSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCPSocket.swift; sourceTree = "<group>"; };
 		9AF562A5ADD7DA3BF5F2446F /* Pods_Modu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Modu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A080AE82196CB66A488A17EA /* Pods-Modu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Modu.release.xcconfig"; path = "Target Support Files/Pods-Modu/Pods-Modu.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				24CED1392739FCC80012AD7D /* SendCardViewController.swift */,
 				24CED14F273A55A60012AD7D /* ReceiveViewController.swift */,
 				24BD86722739FA220044DD71 /* SelectViewController.swift */,
+				2474A3DA275E14E5004A1AC3 /* Data+.swift */,
 			);
 			path = 01.Main;
 			sourceTree = "<group>";
@@ -167,7 +172,8 @@
 		24F7196327412DE70096971B /* sound */ = {
 			isa = PBXGroup;
 			children = (
-				24F7198C274131780096971B /* chirp.m4a */,
+				245EF42C275F45C00025D60F /* audio_test.m4a */,
+				2474A3D8275DB9AB004A1AC3 /* chirp.m4a */,
 			);
 			path = sound;
 			sourceTree = "<group>";
@@ -217,6 +223,7 @@
 		24BD8653273943490044DD71 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
@@ -250,9 +257,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				24BD866B2739434A0044DD71 /* LaunchScreen.storyboard in Resources */,
+				245EF42D275F45C00025D60F /* audio_test.m4a in Resources */,
 				24BD86682739434A0044DD71 /* Assets.xcassets in Resources */,
 				24BD8666273943490044DD71 /* Main.storyboard in Resources */,
-				24F7198D274131780096971B /* chirp.m4a in Resources */,
+				2474A3D9275DB9AB004A1AC3 /* chirp.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +323,7 @@
 				24F7196227410A560096971B /* Card.swift in Sources */,
 				24B683FD2744111D00E97CB7 /* MyCard.swift in Sources */,
 				24CED13A2739FCC80012AD7D /* SendCardViewController.swift in Sources */,
+				2474A3DB275E14E5004A1AC3 /* Data+.swift in Sources */,
 				24FE5E27274632FF001DDCAC /* TCPSocket.swift in Sources */,
 				24CED143273A20460012AD7D /* CardListCell.swift in Sources */,
 				24B683FF274413D700E97CB7 /* DefaultVC.swift in Sources */,
@@ -397,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -452,7 +461,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -12,17 +12,54 @@ import UIKit
 class SendCardViewController: UIViewController, AVAudioRecorderDelegate, StreamDelegate {
     var recorder: AVAudioRecorder!
     var outputStream: OutputStream?
+    
+    let alert = UIAlertController(title: "성공! ", message: "명함 데이터를 보내겠습니까?", preferredStyle: .alert)
+    
+    let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+        cardList.append(Card(name: "Yoon Ha. B", tel: "010-1111-2222", company: "중앙대학교", image: UIImage(named: "cau"), email: "tlol91@cau.com"))
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard outputStream != nil else { return }
+     
+        
+        alert.addAction(okAction)
 
-//        let outputData = Data(referencing: audioData).withUnsafeBytes { unsafeBytes in
-//            let bytes = unsafeBytes.bindMemory(to: UInt8.self).baseAddress!
-//            outputStream?.write(bytes, maxLength: audioData.count)
-//
-//            print("count :",audioData.count)
-//          //  print("length :", audioData.length)
-//        }
+        present(alert, animated: false, completion: nil)
+        
+        
+    }
+
+    func sendStringHeader2Server() {
+        let type = Int8(0)
+        var data_size = UInt32(cardList[0].name.count)
+        var send_data_size: UInt32 = data_size.bigEndian
+
+        let bytes = MemoryLayout<UInt32>.size * 2
+        let pointerS = UnsafeMutableRawPointer.allocate(byteCount: bytes, alignment: 2)
+
+        let o0 = 0
+        pointerS.advanced(by: o0).storeBytes(of: Int8(type), as: Int8.self)
+        let o1 = 4
+        pointerS.advanced(by: o1).storeBytes(of: send_data_size, as: UInt32.self)
+
+        let ptrDataType0 = pointerS.assumingMemoryBound(to: UInt8.self)
+        outputStream?.write(ptrDataType0, maxLength: MemoryLayout<UInt32>.size * 2)
+    }
+
+    // send2server
+    func sendString2Server() {
+        let type = Int8(1)
+        let message = cardList[0].name // "Minji"
+        let message_size = message.data(using: .utf8)?.count
+        let send_message_size:UInt32 = UInt32(message_size!).bigEndian // 실제로 보낼 메세지의 사이즈를 bigendian으로 저장
+
+        guard outputStream != nil else { return }
+        let outData = message.data(using: .utf8)
+        outData?.withUnsafeBytes { (p: UnsafePointer<UInt8>) -> Void in
+            outputStream!.write(p, maxLength: (outData?.count)!)
+        }
+
     }
 
     func stopRecord() {
