@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		245EF42D275F45C00025D60F /* audio_test.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 245EF42C275F45C00025D60F /* audio_test.m4a */; };
+		24167BB1275FA69200918257 /* audio_test.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 24167BB0275FA69200918257 /* audio_test.m4a */; };
 		2474A3D9275DB9AB004A1AC3 /* chirp.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2474A3D8275DB9AB004A1AC3 /* chirp.m4a */; };
 		2474A3DB275E14E5004A1AC3 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2474A3DA275E14E5004A1AC3 /* Data+.swift */; };
 		248CA095274388CD00CD7F8A /* AddNewCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248CA094274388CD00CD7F8A /* AddNewCardVC.swift */; };
@@ -33,7 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		245EF42C275F45C00025D60F /* audio_test.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = audio_test.m4a; path = ../../../../Documents/audio_test.m4a; sourceTree = "<group>"; };
+		24167BB0275FA69200918257 /* audio_test.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = audio_test.m4a; path = ../../../../.Trash/audio_test.m4a; sourceTree = "<group>"; };
 		2474A3D8275DB9AB004A1AC3 /* chirp.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = chirp.m4a; path = ../../../../Downloads/chirp.m4a; sourceTree = "<group>"; };
 		2474A3DA275E14E5004A1AC3 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		248CA094274388CD00CD7F8A /* AddNewCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardVC.swift; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 		24F7196327412DE70096971B /* sound */ = {
 			isa = PBXGroup;
 			children = (
-				245EF42C275F45C00025D60F /* audio_test.m4a */,
+				24167BB0275FA69200918257 /* audio_test.m4a */,
 				2474A3D8275DB9AB004A1AC3 /* chirp.m4a */,
 			);
 			path = sound;
@@ -257,8 +257,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				24BD866B2739434A0044DD71 /* LaunchScreen.storyboard in Resources */,
-				245EF42D275F45C00025D60F /* audio_test.m4a in Resources */,
 				24BD86682739434A0044DD71 /* Assets.xcassets in Resources */,
+				24167BB1275FA69200918257 /* audio_test.m4a in Resources */,
 				24BD8666273943490044DD71 /* Main.storyboard in Resources */,
 				2474A3D9275DB9AB004A1AC3 /* chirp.m4a in Resources */,
 			);

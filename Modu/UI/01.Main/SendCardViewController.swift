@@ -21,6 +21,7 @@ class SendCardViewController: UIViewController, AVAudioRecorderDelegate, StreamD
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
      
         
         alert.addAction(okAction)

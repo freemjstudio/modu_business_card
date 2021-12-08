@@ -7,22 +7,39 @@
 
 import AVFoundation
 import UIKit
+var myCard = Card(name: "라이언", tel: "010-3333-4444", company: "카카오", image: UIImage(named: "ryan"), email: "ryan@kakao.com")
 
 class MyCardViewController: UIViewController {
    
-    var myCard: Card?
+  
+    @IBOutlet weak var myImage: UIImageView!
+    @IBOutlet weak var myName: UILabel!
+    @IBOutlet weak var myTel: UILabel!
+    @IBOutlet weak var myCompany: UILabel!
+    @IBOutlet weak var myEmail: UILabel!
     
     @IBAction func editBtn(_ sender: Any) {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.myImage.image = myCard.image
+        self.myName.text = myCard.name
+        self.myTel.text = myCard.tel
+        self.myCompany.text = myCard.company
+        self.myEmail.text = myCard.email
+    }
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.myImage.image = myCard.image
+        self.myName.text = myCard.name
+        self.myTel.text = myCard.tel
+        self.myCompany.text = myCard.company
         
-        if myCard == nil {
-            // show default view
-        }
-       
+        
     }
 
     /*

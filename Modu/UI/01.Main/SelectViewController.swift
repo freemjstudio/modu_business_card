@@ -44,6 +44,10 @@ class SelectViewController: UIViewController, StreamDelegate, AVAudioRecorderDel
         }
     }
 
+    @IBOutlet var mySendBtn: UIButton!
+
+    @IBOutlet var myReceiveBtn: UIButton!
+
     func playChirpSound() {
         if let url = Bundle.main.url(forResource: "chirp", withExtension: "m4a") {
             player.removeAllItems()
@@ -63,6 +67,19 @@ class SelectViewController: UIViewController, StreamDelegate, AVAudioRecorderDel
 
     // 명함 전송하기 - A
     @IBAction func SendBtn(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: "    교환할 상대를 찾는 중입니다", preferredStyle: .alert)
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: -10, y: 5, width: 80, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+        loadingIndicator.startAnimating()
+        alert.view.addSubview(loadingIndicator)
+        let alertOK = UIAlertController(title: "Success", message: "명함 데이터를 보내겠습니까?", preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+        }
+
+       
+
         Stream.getStreamsToHost(withName: host_address, port: host_port, inputStream: &inputStream, outputStream: &outputStream)
         outputStream!.open()
         inputStream?.delegate = self
@@ -73,13 +90,9 @@ class SelectViewController: UIViewController, StreamDelegate, AVAudioRecorderDel
 
         record()
         playChirpSound()
-
-        do {
-            audioData = try Data(contentsOf: audioURL!)
-            print(audioData.count)
-        } catch {
-            print(error.localizedDescription)
-        }
+        
+        alertOK.addAction(okAction)
+        present(alertOK, animated: false, completion: nil)
 
         /* sendfilename2server */
 
@@ -165,6 +178,15 @@ class SelectViewController: UIViewController, StreamDelegate, AVAudioRecorderDel
 
     // 명함 받기 - B
     @IBAction func RecvBtn(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: "    교환할 상대를 찾는 중입니다", preferredStyle: .alert)
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: -10, y: 5, width: 80, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.medium
+        loadingIndicator.startAnimating()
+        alert.view.addSubview(loadingIndicator)
+
+        present(alert, animated: true, completion: nil)
+
         Stream.getStreamsToHost(withName: host_address, port: host_port, inputStream: &inputStream, outputStream: &outputStream)
         outputStream!.open()
         inputStream?.delegate = self
@@ -175,6 +197,10 @@ class SelectViewController: UIViewController, StreamDelegate, AVAudioRecorderDel
         record()
         playChirpSound()
 
+     //   cardList.append(Card(name: "Yoon Ha. B", tel: "010-1111-2222", company: "중앙대학교", image: UIImage(named: "cau"), email: "tlol91@cau.com"))
+        cardList.append(myCard)
+
+        dismiss(animated: false, completion: nil)
         // B packet
 
         /* sendfilename2server */
@@ -270,6 +296,8 @@ class SelectViewController: UIViewController, StreamDelegate, AVAudioRecorderDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        mySendBtn.applyGradient(colors: [UIColorFromRGB(0x2B95CE).cgColor, UIColorFromRGB(0x2ECAD5).cgColor])
+        myReceiveBtn.applyGradient(colors: [UIColorFromRGB(0x2B95CE).cgColor, UIColorFromRGB(0x2ECAD5).cgColor])
     }
 
     func initRecord() {
@@ -379,5 +407,9 @@ class SelectViewController: UIViewController, StreamDelegate, AVAudioRecorderDel
         default:
             return
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+       
     }
 }

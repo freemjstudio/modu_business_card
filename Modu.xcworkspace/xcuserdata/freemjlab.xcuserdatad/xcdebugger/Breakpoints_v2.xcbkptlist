@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9D56A13A-8DBA-4EE9-B32D-248727F445F3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Modu/UI/01.Main/SelectViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
-            landmarkName = "RecvBtn(_:)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "970CB856-6CEF-4BA3-A999-6CD1B3C34E53"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -30,42 +14,10 @@
             filePath = "Modu/UI/01.Main/SelectViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "970CB856-6CEF-4BA3-A999-6CD1B3C34E53 - 6154c7c2e909d3fb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.UnsafePointer&lt;Swift.UInt8&gt;) -&gt; () in Modu.SelectViewController.SendBtn(Any) -&gt; ()"
-                  moduleName = "Modu"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/freemjlab/Desktop/Modu/Modu/UI/01.Main/SelectViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "138"
-                  endingLineNumber = "138"
-                  offsetFromSymbolStart = "824">
-               </Location>
-               <Location
-                  uuid = "970CB856-6CEF-4BA3-A999-6CD1B3C34E53 - a1e79c3545c4ece0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.UnsafePointer&lt;Swift.UInt8&gt;) -&gt; () in closure #1 (Swift.UnsafePointer&lt;Swift.UInt8&gt;) -&gt; () in Modu.SelectViewController.SendBtn(Any) -&gt; ()"
-                  moduleName = "Modu"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/freemjlab/Desktop/Modu/Modu/UI/01.Main/SelectViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "SendBtn(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -78,10 +30,10 @@
             filePath = "Modu/UI/01.Main/SelectViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "SendBtn(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -94,10 +46,10 @@
             filePath = "Modu/UI/01.Main/SelectViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "SendBtn(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

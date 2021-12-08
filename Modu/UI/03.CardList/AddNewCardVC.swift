@@ -14,7 +14,10 @@ class AddNewCardVC: UIViewController, UITextFieldDelegate {
     @IBOutlet var telTextField: UITextField!
     @IBOutlet var companyTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
+    
 
+    
+    
     let picker = UIImagePickerController()
 
     func openLibrary() {
@@ -31,6 +34,8 @@ class AddNewCardVC: UIViewController, UITextFieldDelegate {
         }
     }
 
+    
+    @IBOutlet weak var myAddBtn: UIButton!
     @IBAction func addImageBtn(_ sender: Any) {
         let alert = UIAlertController(title: "프로필 이미지", message: "프로필 이미지를 선택해 주세요", preferredStyle: .actionSheet)
         let library = UIAlertAction(title: "사진 엘범", style: .default) { _ in self.openLibrary() }
@@ -53,6 +58,9 @@ class AddNewCardVC: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        self.myAddBtn.applyGradient(colors: [UIColorFromRGB(0x2B95CE).cgColor,UIColorFromRGB(0x2ECAD5).cgColor])
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
